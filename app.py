@@ -51,7 +51,7 @@ data = {
     "pickup_longitude": pickup_longitude,
     "dropoff_latitude": dropoff_latitude,
     "dropoff_longitude": dropoff_longitude,
-    "passenger_count": passenger_count,
+    "passenger_count": int(passenger_count),
     "pickup_datetime": date_time,
 }
 
