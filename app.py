@@ -13,8 +13,13 @@ import datetime
 d = st.date_input(
     "Enter your date of travel",
     datetime.datetime(2022, 1, 1, 1))
-#t = st.time_input('Set an alarm for', datetime.time(8, 45))
+
 st.write(d)
+t = st.time_input('Choose a time', datetime.time(8, 45))
+
+date_time = datetime.datetime.combine(d, t).strftime("%Y-%m-%d %H:%M:%S")
+st.write(date_time)
+
 pickup_longitude = st.number_input('pickup longitude')
 pickup_latitude = st.number_input('pickup latitude')
 dropoff_longitude = st.number_input('dropoff longitude')
@@ -47,7 +52,7 @@ data = {
     "dropoff_latitude": dropoff_latitude,
     "dropoff_longitude": dropoff_longitude,
     "passenger_count": passenger_count,
-    "pickup_datetime": d,
+    "pickup_datetime": date_time,
 }
 
 import requests
