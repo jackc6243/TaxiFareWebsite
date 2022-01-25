@@ -2,26 +2,14 @@ import streamlit as st
 import datetime
 
 '''
-# TaxiFareModel front
+# TaxiFareModel Prediction
 '''
 
-st.markdown('''
-Remember that there are several ways to output content into your web page...
-
-Either as with the title by just creating a string (or an f-string). Or as with this paragraph using the `st.` functions
-''')
 
 '''
-## Enter pick up and drop off location:
-
-1. Let's ask for:
-- date and time
-- pickup longitude
-- pickup latitude
-- dropoff longitude
-- dropoff latitude
-- passenger count
+## Enter taxi ride information:
 '''
+
 d = st.date_input(
     "Enter your date of travel",
     datetime.datetime(2022, 1, 1, 1, 1, 1))
@@ -30,7 +18,7 @@ pickup_longitude = st.number_input('pickup longitude')
 pickup_latitude = st.number_input('pickup latitude')
 dropoff_longitude = st.number_input('dropoff longitude')
 dropoff_latitude = st.number_input('dropoff latitude')
-passenger_count = st.number_input('dropoff latitude')
+passenger_count = st.number_input('passenger count')
 
 '''
 ## Once we have these, let's call our API in order to retrieve a prediction
@@ -64,5 +52,9 @@ data = {
 import requests
 
 response = requests.get(url, params=data)
+
+"""
+Result is:
+"""
 
 st.write(response.json())
