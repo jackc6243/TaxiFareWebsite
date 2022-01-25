@@ -57,10 +57,15 @@ data = {
 
 import requests
 
-response = requests.get(url, params=data)
+if st.button('Predict'):
+    # print is visible in the server output, not in the page
+    response = requests.get(url, params=data)
+    """
+    Result is:
+    """
+    st.write(response.json())
+else:
+    st.write('Enter the params first')
 
-"""
-Result is:
-"""
 
-st.write(response.json())
+
